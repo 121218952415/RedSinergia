@@ -6,15 +6,15 @@ const User = require("./user");
 const Transactions = sequelize.define(
   "Transactions",
   {
-    id_cuenta_origen: {
-      type: DataTypes.INTEGER,
+    id_origin_account: {
+      type: DataTypes.STRING,
       references: {
         model: Account,
         key: "id",
       },
     },
-    id_cuenta_destino: {
-      type: DataTypes.INTEGER,
+    id_destination_account: {
+      type: DataTypes.STRING,
       references: {
         model: Account,
         key: "id",
@@ -31,8 +31,11 @@ const Transactions = sequelize.define(
       type: DataTypes.FLOAT,
       defaultValue: 0.0,
     },
-  },
-  { timestamps: true }
+    date_time_transactions : {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+  }
 );
 
 module.exports = Transactions;

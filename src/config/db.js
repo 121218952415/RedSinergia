@@ -21,28 +21,8 @@ const sequelize = new Sequelize(
     }
   })();
   
- const {User,Transactions,Account} = sequelize.models
 
 
- User.hasMany(Account, { foreignKey: 'id_user' });
-Account.belongsTo(User, { foreignKey: 'id_user' });
-// Transaction example
-
-// Relación entre Cuenta y Transacciones (como cuenta de origen y destino)
-Account.hasMany(Transactions, { foreignKey: 'id_cuenta_origen', as: 'transactionsFrom' });
-Transactions.belongsTo(Account, { foreignKey: 'id_cuenta_origen', as: 'accountFrom' });
-
-Account.hasMany(Transactions, { foreignKey: 'id_cuenta_destino', as: 'transactionsTo' });
-Transactions.belongsTo(Account, { foreignKey: 'id_cuenta_destino', as: 'accountTo' });
-
-
-
-User.hasMany(Transactions, { foreignKey: 'id_user' });
-Transactions.belongsTo(User, { foreignKey: 'id_user' });
-
-// Relación entre Usuario y Cuenta
-User.hasMany(Account, { foreignKey: 'id_user', as: 'accounts' });
-Account.belongsTo(User, { foreignKey: 'id_user' });
 
   
 
