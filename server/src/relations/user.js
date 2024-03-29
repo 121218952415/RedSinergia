@@ -11,3 +11,10 @@
 
  User.hasMany(Transactions); // Un usuario puede tener muchas transacciones
  Transactions.belongsTo(User); // Cada transacción pertenece a un usuario
+
+
+ module.exports = {
+    User,
+    Transactions,
+    Account
+  };

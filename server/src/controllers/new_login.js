@@ -14,7 +14,6 @@ const newLogin = async (req, res) => {
     // Autenticación exitosa
     res.json({ message: '¡Login exitoso!' });
   } catch (error) {
-    console.error("Error:", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };
