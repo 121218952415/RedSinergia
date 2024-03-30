@@ -6,16 +6,16 @@ const Account = sequelize.define(
   "Account",
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      autoIncrement: true, // Hace que el ID sea autoincremental
     },
-    accound_number: {
+    account_number: {
       type: DataTypes.STRING(8), // Define el número de tarjeta como una cadena de 8 caracteres
       unique: true, // Asegura que el número de tarjeta sea único en la base de datos
     },
     id_user: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       references: {
         model: User,
         key: "id",

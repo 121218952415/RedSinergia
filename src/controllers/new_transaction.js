@@ -1,9 +1,9 @@
 const { User, Transactions, Account } = require("../relations/user");
 
 const nweTransactions = async (req, res) => {
-    const {id_origin_account, id_destination_account, id_user, amount}= req.body
+    const {id_origin_account, id_destination_account, id_user, accound_number}= req.body
   try {
-   const checkFunds = await  Account.findOne({where:{id:senderAccountId}, include:[{model:User}]})
+   const checkFunds = await  Account.findOne({where:{id_origin_account : id_origin_account}, include:[{model:User}]})
      if(checkFunds.balance < amount){
        return res.status(401).json({message:"You don't have enough funds"})
      }
