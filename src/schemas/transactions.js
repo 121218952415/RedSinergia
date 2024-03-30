@@ -1,20 +1,20 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
-const Account = require("./account");
 const User = require("./user");
+const Account = require("./account");
 
 const Transactions = sequelize.define(
   "Transactions",
   {
     id_origin_account: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       references: {
         model: Account,
         key: "id",
       },
     },
     id_destination_account: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID,
       references: {
         model: Account,
         key: "id",
@@ -37,5 +37,7 @@ const Transactions = sequelize.define(
     },
   }
 );
+
+
 
 module.exports = Transactions;

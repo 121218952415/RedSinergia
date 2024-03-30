@@ -1,8 +1,11 @@
 const Router = require("express");
-const newAccount = require("../controllers/new_account");
 const { verifyToken } = require("../middlewares/verify_tokens");
+const { nweTransactions } = require("../controllers/new_transaction");
 const router = Router();
 
-router.post("/Create",verifyToken,newAccount);
+
+
+router.post("/Create", verifyToken,nweTransactions);
+
 
 module.exports = router;

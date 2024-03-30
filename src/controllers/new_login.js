@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const User = require("../schemas/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
