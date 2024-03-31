@@ -6,6 +6,11 @@ const Account = require("./account");
 const Transactions = sequelize.define(
   "Transactions",
   {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    },
     id_origin_account: {
       type: DataTypes.UUID,
       references: {
@@ -28,7 +33,7 @@ const Transactions = sequelize.define(
       },
     },
     amount: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL(10, 2),
       defaultValue: 0.0,
     },
     date_time_transactions : {

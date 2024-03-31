@@ -22,7 +22,7 @@ const Account = sequelize.define(
       },
     },
     balance: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(10, 2),
       defaultValue: 0.0,
     },
   },

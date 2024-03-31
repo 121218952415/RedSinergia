@@ -59,9 +59,6 @@ async function createUsersAndAccounts() {
             console.log(`Usuario y cuenta creados: ${newUser.name}, ${newAccount}`);
         }
         
-        // Después de crear todas las cuentas, obtenemos el número total de cuentas en la base de datos
-        const totalAccounts = await Account.count();
-        console.log(`Número total de cuentas en la base de datos: ${totalAccounts}`);
     } catch (error) {
          console.error(`Error al crear usuario y cuenta: ${error}`);
     }
