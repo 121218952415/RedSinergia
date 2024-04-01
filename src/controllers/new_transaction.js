@@ -13,7 +13,6 @@ const nweTransactions = async (req, res) => {
     //decodificamos la info del token
     const decodedToken = jwt.decode(token); //decodificamos el jwt
     const idUserAccount = decodedToken.userId;
-    console.log(idUserAccount);
     // realisamos busqueda del ususario y su cuenta  asociada a este id de usuario
     const userWithAccount = await User.findAll({
       where: { id: decodedToken.userId }, // buscamos la cuenta del logeado por id de token
@@ -77,7 +76,6 @@ const nweTransactions = async (req, res) => {
 
     return res.status(200).json("Transaction completed successfully");
   } catch (error) {
-    console.error("Error:", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 };

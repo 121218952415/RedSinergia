@@ -7,7 +7,7 @@ const newUser = async (req, res) => {
   try {
     //Validamos  que el ususario exisa
     const existingUser = await User.findOne({ where: { email: email } });
-   
+   // verificamos si el ususario existe 
     if (existingUser) {
       return res.status(400).json({ error: "User already exists." });
     }
